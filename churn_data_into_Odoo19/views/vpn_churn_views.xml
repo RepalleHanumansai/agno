@@ -1,0 +1,66 @@
+<odoo>
+
+    <menuitem id="menu_vpn_churn_root"
+              name="VPN Churn"
+              sequence="10"/>
+
+    <record id="action_vpn_churn" model="ir.actions.act_window">
+        <field name="name">VPN Churn Dataset</field>
+        <field name="res_model">vpn.churn</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_vpn_churn_test" model="ir.actions.act_window">
+        <field name="name">VPN Churn Test Dataset</field>
+        <field name="res_model">vpn.churn.test</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_vpn_churn_data"
+              name="Training Data"
+              parent="menu_vpn_churn_root"
+              action="action_vpn_churn"
+              sequence="1"/>
+
+    <menuitem id="menu_vpn_churn_test_data"
+              name="Test Data"
+              parent="menu_vpn_churn_root"
+              action="action_vpn_churn_test"
+              sequence="2"/>
+
+    <record id="view_vpn_churn_list" model="ir.ui.view">
+        <field name="name">vpn.churn.list</field>
+        <field name="model">vpn.churn</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="customer_id"/>
+                <field name="tenure"/>
+                <field name="subscription_type"/>
+                <field name="monthly_usage_hours"/>
+                <field name="churn"/>
+            </list>
+        </field>
+    </record>
+
+    
+    <record id="view_vpn_churn_form" model="ir.ui.view">
+        <field name="name">vpn.churn.form</field>
+        <field name="model">vpn.churn</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="gender"/>
+                        <field name="marital_status"/>
+                        <field name="tenure"/>
+                        <field name="subscription_type"/>
+                        <field name="monthly_usage_hours"/>
+                        <field name="churn"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
